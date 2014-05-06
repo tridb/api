@@ -8,7 +8,9 @@ object Application extends Controller {
 
   def index = Action { request =>
     Ok(Json.obj(
-      "status" -> "OK"
+      "status" -> "OK",
+      "name" -> Play.current.configuration.getString("application.name"),
+      "version" -> Play.current.configuration.getString("application.version")
     ))
   }
 
